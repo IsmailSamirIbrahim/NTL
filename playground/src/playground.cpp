@@ -3,7 +3,7 @@
 #include <list>
 //#include <vld.h>
 
-#include <ntl/single_list.h>
+#include <ntl/Singly_List.h>
 
 using namespace std;
 using namespace ntl;
@@ -13,27 +13,12 @@ int main()
 {
 	auto start = high_resolution_clock::now();
 
-	SLList list = sllist_new<int>();
-	for (int i = 0; i < 900000000; ++i)
-		sllist_push_back(list, i);
+	Single_List<int> list;
 
 	auto stop = high_resolution_clock::now();
 	auto duration = duration_cast<milliseconds>(stop - start);
 	printf("Time SLList = %lld  millisecond\n", duration.count());
 
-
-	start = high_resolution_clock::now();
-
-	std::list<int> l;
-	for (int i = 0; i < 900000000; ++i)
-		l.push_back(i);
-
-	stop = high_resolution_clock::now();
-	duration = duration_cast<milliseconds>(stop - start);
-	printf("Time = %lld  millisecond\n", duration.count());
-
-
-	sllist_free(list);
 
 	return 0;
 }

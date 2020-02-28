@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.9)
 
 # list source files
 set(SOURCE_FILES
-	src/unittest_ntl.cpp
 	src/unittest_main.cpp
+	src/singly_list.cpp
 )
 
 # add executable target

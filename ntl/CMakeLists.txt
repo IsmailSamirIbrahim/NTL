@@ -2,12 +2,12 @@ cmake_minimum_required(VERSION 3.9)
 
 # list the header files
 set(HEADER_FILES
-	include/ntl/single_list.h
+	include/ntl/Singly_List.h
 )
 
 # list the source files
 set(SOURCE_FILES
-	src/ntl/single_list.cpp
+	src/ntl/tmp.cpp
 )
 
 # add library target
