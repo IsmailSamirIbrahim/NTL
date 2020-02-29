@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.9)
 
 # list the header files
 set(HEADER_FILES
-	include/ntl/Singly_List.h
+	include/ntl/Forward_List.h
 )
 
 # list the source files

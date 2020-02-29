@@ -2,7 +2,7 @@
 
 //#include <vld.h>
 
-#include <ntl/Singly_List.h>
+#include <ntl/Forward_List.h>
 
 using namespace std;
 using namespace ntl;
@@ -10,7 +10,7 @@ using namespace ntl;
 
 TEST_CASE("[singly_list]: push_front")
 {
-	Single_List<int> list{};
+	Forward_List<int> list{};
 
 	list.push_front(4);
 	list.push_front(3);
@@ -24,7 +24,7 @@ TEST_CASE("[singly_list]: push_front")
 
 TEST_CASE("[singly_list]: insert")
 {
-	Single_List<int> list{};
+	Forward_List<int> list{};
 
 	list.insert(0, 4);
 	list.insert(0, 3);
@@ -38,7 +38,7 @@ TEST_CASE("[singly_list]: insert")
 
 TEST_CASE("[singly_list]: assign")
 {
-	Single_List<int> list{};
+	Forward_List<int> list{};
 
 	list.assign({ 1, 2, 3, 4, 5 });
 
@@ -56,7 +56,7 @@ TEST_CASE("[singly_list]: assign")
 
 TEST_CASE("[singly_list]: erase")
 {
-	Single_List<int> list{};
+	Forward_List<int> list{};
 
 	list.assign({ 5, 4, 3, 2, 1 });
 
