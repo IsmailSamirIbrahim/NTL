@@ -47,6 +47,8 @@ namespace ntl
 
 		bool empty();
 
+		size_t size();
+
 		void erase(size_t index);
 
 		T& front();
@@ -253,8 +255,23 @@ namespace ntl
 	}
 
 	template<typename T>
+	size_t List<T>::size()
+	{
+		return _size;
+	}
+
+	template<typename T>
 	void List<T>::erase(size_t index)
 	{
+		if (_size == 0)
+			return;
+
+		if (index == 0)
+		{
+			this->pop_front();
+			return;
+		}
+
 		auto it = _head;
 		while (--index)
 			it = it->next;
