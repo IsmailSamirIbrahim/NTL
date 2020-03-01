@@ -8,4 +8,3 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/$<CONFIG>")
 
 add_subdirectory(ntl)
 add_subdirectory(unittest)
-add_subdirectory(playground)
