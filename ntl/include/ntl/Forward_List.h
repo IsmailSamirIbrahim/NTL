@@ -3,21 +3,18 @@
 namespace ntl
 {
 	template<typename T>
-	struct INode
+	struct Forward_List_Node
 	{
-		T data = T{ 0 };
-		INode<T>* next = nullptr;
-
-		INode() = default;
-		explicit INode(T value) noexcept
+		Forward_List_Node() = default;
+		Forward_List_Node(T value) noexcept
 		{
 			data = value ;
 			next = nullptr;
 		}
-	};
 
-	template<typename T>
-	using Node = INode<T>*;
+		T data = T{};
+		Forward_List_Node<T>* next = nullptr;
+	};
 
 	template<typename T>
 	class Forward_List
@@ -47,7 +44,6 @@ namespace ntl
 		bool empty();
 		size_t size();
 
-
 		void insert(size_t index, T value);
 
 		void erase(size_t index);
@@ -55,7 +51,7 @@ namespace ntl
 		void clear();
 
 	private:
-		Node<T> _head = nullptr;
+		Forward_List_Node<T>* _head = nullptr;
 		size_t _size = 0;
 	};
 
@@ -67,7 +63,7 @@ namespace ntl
 		auto it2 = this->_head;
 		for (size_t i = 0; i < other._size; ++i)
 		{
-			Node<T> node = new INode<T>{ it1->data };
+			auto node = new Forward_List_Node<T>{ it1->data };
 			if (i == 0)
 			{
 				this->_head = node;
@@ -88,7 +84,7 @@ namespace ntl
 		auto it2 = this->_head;
 		for (size_t i = 0; i < other._size; ++i)
 		{
-			Node<T> node = new INode<T>{ it1->data };
+			auto node = new Forward_List_Node<T>{ it1->data };
 			if (i == 0)
 			{
 				this->_head = node;
@@ -162,7 +158,7 @@ namespace ntl
 	template<typename T>
 	void Forward_List<T>::push_front(T value)
 	{
-		Node<T> node = new INode<T>(value);
+		auto node = new Forward_List_Node<T>(value);
 		node->next = _head;
 		_head = node;
 		++_size;
@@ -174,7 +170,7 @@ namespace ntl
 		if (_size == 0)
 			return;
 
-		Node<T> deleted_node = _head;
+		auto deleted_node = _head;
 		_head = deleted_node->next;
 
 		delete deleted_node;
@@ -208,11 +204,11 @@ namespace ntl
 			return;
 		}
 
-		Node<T> it = _head;
+		auto it = _head;
 		while (--index)
 			it = it->next;
 
-		Node<T> node = new INode<T>{ value };
+		auto node = new Forward_List_Node<T>{ value };
 		node->next = it->next;
 		it->next = node;
 		++_size;
@@ -230,11 +226,11 @@ namespace ntl
 			return;
 		}
 
-		Node<T> it = _head;
+		auto it = _head;
 		while (--index)
 			it = it->next;
 
-		Node<T> deleted_node = it->next;
+		auto deleted_node = it->next;
 		it->next = deleted_node->next;
 		delete deleted_node;
 
@@ -247,7 +243,7 @@ namespace ntl
 		if (_size == 0)
 			return;
 
-		Node<T> it = _head;
+		auto it = _head;
 		while (_head != nullptr)
 		{
 			it = _head;
