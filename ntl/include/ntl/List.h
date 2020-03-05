@@ -199,8 +199,7 @@ namespace ntl
 	template<typename T>
 	void List<T>::pop_front()
 	{
-		if (this->empty())
-			assert(false && "list is empty");
+		assert(!this->empty() && "List is empty");
 
 		auto deleted_node = _head;
 		_head = _head->next;
@@ -213,8 +212,7 @@ namespace ntl
 	template<typename T>
 	void List<T>::pop_back()
 	{
-		if (this->empty())
-			assert(false && "list is empty");
+		assert(!this->empty && "List is empty");
 
 		auto deleted_node = _tail;
 		_tail = _tail->prev;
@@ -226,8 +224,7 @@ namespace ntl
 	template<typename T>
 	T& List<T>::front()
 	{
-		if (this->empty())
-			assert(false && "list is empty");
+		assert(!this->empty() && "List is empty");
 
 		return _head->data;
 	}
@@ -235,8 +232,7 @@ namespace ntl
 	template<typename T>
 	T& List<T>::back()
 	{
-		if (this->empty())
-			assert(false && "list is empty");
+		assert(!this->empty() && "List is empty");
 
 		return _tail->data;
 	}
@@ -270,8 +266,7 @@ namespace ntl
 	template<typename T>
 	void List<T>::erase(size_t index)
 	{
-		if (this->empty())
-			assert(false && "list is empty");
+		assert(!this->empty() && "List is empty");
 
 		if (index == 0)
 		{

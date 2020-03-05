@@ -33,6 +33,9 @@ namespace ntl
 		void pop_back();
 		void resize(size_t new_size);
 
+		void insertAt(size_t index, const T& val);
+		void deleteAt(size_t index);
+
 	private:
 		void expande();
 
@@ -139,8 +142,7 @@ namespace ntl
 	template<typename T>
 	T& Vector<T>::at(size_t index)
 	{
-		if (index > this->_size - 1)
-			assert(false && "index out of range");
+		assert(index < _size && index >= 0 && "index out of range");
 
 		return this->_data[index];
 	}
@@ -148,8 +150,7 @@ namespace ntl
 	template<typename T>
 	T& Vector<T>::front()
 	{
-		if (this->empty())
-			assert(false && "vector is empty");
+		assert(!this->empty() && "vector is empty");
 
 		return this->_data[0];
 	}
@@ -157,8 +158,7 @@ namespace ntl
 	template<typename T>
 	const T& Vector<T>::front() const
 	{
-		if (this->empty())
-			assert(false && "vector is empty");
+		assert(!this->empty() && "vector is empty");
 
 		return this->_data[0];
 	}
@@ -166,8 +166,7 @@ namespace ntl
 	template<typename T>
 	T& Vector<T>::back()
 	{
-		if (this->empty())
-			assert(false && "vector is empty");
+		assert(!this->empty() && "vector is empty");
 
 		return this->_data[this->_size - 1];
 	}
@@ -175,8 +174,7 @@ namespace ntl
 	template<typename T>
 	const T& Vector<T>::back() const
 	{
-		if (this->empty())
-			assert(false && "vector is empty");
+		assert(!this->empty() && "vector is empty");
 
 		return this->_data[this->_size - 1];
 	}
@@ -237,8 +235,7 @@ namespace ntl
 	template<typename T>
 	void Vector<T>::pop_back()
 	{
-		if (this->empty())
-			assert(false && "vector is empty");
+		assert(!this->empty() && "vector is empty");
 
 		--this->_size;
 	}
@@ -253,5 +250,31 @@ namespace ntl
 
 		delete[] this->_data;
 		this->_data = tmp_data;
+	}
+
+	template<typename T>
+	void Vector<T>::insertAt(size_t index, const T& val)
+	{
+		assert(index < _size && index >= 0 && "index out of range");
+
+		if (_capacity <= _size)
+			expande();
+
+		for (size_t i = _size; i > index; --i)
+			_data[i] = _data[i - 1];
+
+		_data[index] = val;
+		++_size;
+	}
+	
+	template<typename T>
+	void Vector<T>::deleteAt(size_t index)
+	{
+		assert(index < _size && index >= 0 && "index out of range");
+
+		for (size_t i = index; i < size - 1; ++i)
+			_data[i] = _data[i + 1];
+
+		--_size;
 	}
 }

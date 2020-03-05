@@ -168,8 +168,7 @@ namespace ntl
 	template<typename T>
 	void Forward_List<T>::pop_front()
 	{
-		if (this->empty())
-			assert(false && "List is empty");
+		assert(!this->empty() && "List is empty");
 
 		auto deleted_node = _head;
 		_head = deleted_node->next;
@@ -181,8 +180,7 @@ namespace ntl
 	template<typename T>
 	T& Forward_List<T>::front()
 	{
-		if (this->empty())
-			assert(false && "List is empty");
+		assert(!this->empty() && "List is empty");
 
 		return _head->data;
 	}
