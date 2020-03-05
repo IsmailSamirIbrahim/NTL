@@ -16,3 +16,4 @@ This repo includes some sort of data structures and algorithms implementation us
 |List|https://github.com/IsmailSamir/NTL/blob/master/ntl/include/ntl/List.h |
 |Vector|https://github.com/IsmailSamir/NTL/blob/master/ntl/include/ntl/Vector.h |
 |Stack |https://github.com/IsmailSamir/NTL/blob/master/ntl/include/ntl/Stack.h |
+|Queue |https://github.com/IsmailSamir/NTL/blob/master/ntl/include/ntl/Queue.h |
