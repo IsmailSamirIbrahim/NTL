@@ -5,6 +5,7 @@ set(SOURCE_FILES
 	src/unittest_main.cpp
 	src/Forward_List.cpp
 	src/List.cpp
+	src/Vector.cpp
 )
 
 # add executable target
