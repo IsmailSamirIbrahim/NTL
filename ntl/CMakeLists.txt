@@ -5,6 +5,7 @@ set(HEADER_FILES
 	include/ntl/Forward_List.h
 	include/ntl/List.h
 	include/ntl/Vector.h
+	include/ntl/Stack.h
 )
 
 # list the source files

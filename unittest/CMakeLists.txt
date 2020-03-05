@@ -6,6 +6,7 @@ set(SOURCE_FILES
 	src/Forward_List.cpp
 	src/List.cpp
 	src/Vector.cpp
+	src/Stack.cpp
 )
 
 # add executable target
