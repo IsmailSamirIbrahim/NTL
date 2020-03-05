@@ -1,4 +1,5 @@
 #include <initializer_list>
+#include <assert.h>
 
 namespace ntl
 {
