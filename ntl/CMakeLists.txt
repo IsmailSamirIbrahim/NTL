@@ -6,6 +6,7 @@ set(HEADER_FILES
 	include/ntl/List.h
 	include/ntl/Vector.h
 	include/ntl/Stack.h
+	include/ntl/Queue.h
 )
 
 # list the source files

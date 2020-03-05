@@ -7,6 +7,7 @@ set(SOURCE_FILES
 	src/List.cpp
 	src/Vector.cpp
 	src/Stack.cpp
+	src/Queue.cpp
 )
 
 # add executable target
