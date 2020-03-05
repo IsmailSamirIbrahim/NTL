@@ -27,7 +27,7 @@ namespace ntl
 	private:
 		constexpr static size_t MAX_CAPACITY = 1024;
 		T _data[MAX_CAPACITY];
-		size_t _size;
+		size_t _size = 0;
 		int _front = -1;
 		int _rear = -1;
 	};
