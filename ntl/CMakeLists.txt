@@ -7,6 +7,7 @@ set(HEADER_FILES
 	include/ntl/Vector.h
 	include/ntl/Stack.h
 	include/ntl/Queue.h
+	include/ntl/Binary_Search_Tree.h
 )
 
 # list the source files

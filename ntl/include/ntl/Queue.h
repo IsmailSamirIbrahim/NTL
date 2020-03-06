@@ -37,7 +37,7 @@ namespace ntl
 	{
 		assert(!this->empty() && "Queue is empty");
 
-		return this->_data[_front];
+		return this->_data[this->_front];
 	}
 
 	template<typename T>
@@ -49,7 +49,7 @@ namespace ntl
 	template<typename T>
 	bool Queue<T>::empty()
 	{
-		return _front == _rear == -1;
+		return _size == 0;
 	}
 
 	template<typename T>

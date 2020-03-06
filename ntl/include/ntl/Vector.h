@@ -260,6 +260,7 @@ namespace ntl
 		if (_capacity <= _size)
 			expande();
 
+		// shift right
 		for (size_t i = _size; i > index; --i)
 			_data[i] = _data[i - 1];
 
@@ -272,6 +273,7 @@ namespace ntl
 	{
 		assert(index < _size && index >= 0 && "index out of range");
 
+		// shift left
 		for (size_t i = index; i < size - 1; ++i)
 			_data[i] = _data[i + 1];
 

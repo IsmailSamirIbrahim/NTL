@@ -8,6 +8,7 @@ set(SOURCE_FILES
 	src/Vector.cpp
 	src/Stack.cpp
 	src/Queue.cpp
+	src/Binary_Search_Tree.cpp
 )
 
 # add executable target
