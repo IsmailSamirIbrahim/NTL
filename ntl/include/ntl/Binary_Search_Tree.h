@@ -195,6 +195,7 @@ namespace ntl
 	{
 		if (node == nullptr)
 			return;
+
 		destroyNode(node->left);
 		destroyNode(node->right);
 		delete node;
@@ -248,16 +249,16 @@ namespace ntl
 		switch (order)
 		{
 		case TRAVERSE_ORDER::PRE_ORDER:
-			preorder(root, 0);
+			preorder(_root, 0);
 			break;
 		case TRAVERSE_ORDER::IN_ORDER:
-			inorder(root, 0);
+			inorder(_root, 0);
 			break;
 		case TRAVERSE_ORDER::POST_ORDER:
-			postorder(root, 0);
+			postorder(_root, 0);
 			break;
 		case TRAVERSE_ORDER::LEVEL_ORDER:
-			levelOrder(root);
+			levelOrder(_root);
 			break;
 		default:
 			assert(false && "Invaild order");

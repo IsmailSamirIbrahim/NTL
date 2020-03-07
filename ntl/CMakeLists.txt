@@ -8,6 +8,7 @@ set(HEADER_FILES
 	include/ntl/Stack.h
 	include/ntl/Queue.h
 	include/ntl/Binary_Search_Tree.h
+	include/ntl/Max_Binary_Heap.h
 )
 
 # list the source files
