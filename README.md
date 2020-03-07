@@ -18,3 +18,4 @@ This repo includes some sort of data structures and algorithms implementation us
 |Stack |https://github.com/IsmailSamir/NTL/blob/master/ntl/include/ntl/Stack.h |
 |Queue |https://github.com/IsmailSamir/NTL/blob/master/ntl/include/ntl/Queue.h |
 |Binary Search Tree|https://github.com/IsmailSamir/NTL/blob/master/ntl/include/ntl/Binary_Search_Tree.h |
+|Max Binary Heap|https://github.com/IsmailSamir/NTL/blob/master/ntl/include/ntl/Max_Binary_Heap.h | 
