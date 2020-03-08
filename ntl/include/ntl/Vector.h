@@ -16,6 +16,8 @@ namespace ntl
 		~Vector();
 		Vector<T> operator=(const Vector<T>& other);
 		Vector<T> operator=(Vector<T>&& other);
+		T& operator[](size_t index);
+		const T& operator[](size_t index) const;
 
 		T& at(size_t index);
 		T& front();
@@ -137,6 +139,18 @@ namespace ntl
 		other._capacity= 0;
 
 		return *this;
+	}
+
+	template<typename T>
+	T& Vector<T>::operator[](size_t index)
+	{
+		return _data[index];
+	}
+
+	template<typename T>
+	const T& Vector<T>::operator[](size_t index) const
+	{
+		return _data[index];
 	}
 
 	template<typename T>

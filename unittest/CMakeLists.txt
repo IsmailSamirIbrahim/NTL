@@ -11,6 +11,7 @@ set(SOURCE_FILES
 	src/Binary_Search_Tree.cpp
 	src/Max_Binary_Heap.cpp
 	src/Min_Binary_Heap.cpp
+	src/Priority_Queue.cpp
 )
 
 # add executable target

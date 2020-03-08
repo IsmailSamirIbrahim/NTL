@@ -10,6 +10,7 @@ set(HEADER_FILES
 	include/ntl/Binary_Search_Tree.h
 	include/ntl/Max_Binary_Heap.h
 	include/ntl/Min_Binary_Heap.h
+	include/ntl/Priority_Queue.h
 )
 
 # list the source files
