@@ -12,6 +12,7 @@ set(SOURCE_FILES
 	src/Max_Binary_Heap.cpp
 	src/Min_Binary_Heap.cpp
 	src/Priority_Queue.cpp
+	src/Hash_Table.cpp
 )
 
 # add executable target
