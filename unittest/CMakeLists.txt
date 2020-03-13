@@ -13,7 +13,6 @@ set(SOURCE_FILES
 	src/Min_Binary_Heap.cpp
 	src/Priority_Queue.cpp
 	src/Hash_Table.cpp
-	src/AVL_Tree.cpp
 	src/Trie.cpp
 )
 

@@ -12,7 +12,6 @@ set(HEADER_FILES
 	include/ntl/Min_Binary_Heap.h
 	include/ntl/Priority_Queue.h
 	include/ntl/Hash_Table.h
-	include/ntl/AVL_Tree.h
 	include/ntl/Trie.h
 )
 
