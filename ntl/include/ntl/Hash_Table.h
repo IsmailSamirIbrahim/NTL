@@ -1,14 +1,51 @@
+#include <stdint.h>
+
 namespace ntl
 {
-	template<typename Key, size_t tabel_size>
+	template<typename T>
 	struct Hash
 	{
 		inline size_t
-		operator()(const Key& key) const
+		operator()(T) const
 		{
-			return reinterpret_cast<size_t>(key) % tabel_size;
+			static_assert(sizeof(T) == 0, "there's no hash function defined for this type");
+			return 0;
 		}
 	};
+
+	template<typename T>
+	struct Hash<T*>
+	{
+		inline size_t
+		operator()(T* ptr) const
+		{
+			return size_t(ptr);
+		}
+	};
+
+#define TRIVIAL_HASH(TYPE)\
+	template<>\
+	struct Hash<TYPE>\
+	{\
+		inline size_t\
+		operator()(TYPE value) const\
+		{\
+			return static_cast<size_t>(value);\
+		}\
+	}
+
+	TRIVIAL_HASH(char);
+	TRIVIAL_HASH(int8_t);
+	TRIVIAL_HASH(int16_t);
+	TRIVIAL_HASH(int32_t);
+	TRIVIAL_HASH(int64_t);
+	TRIVIAL_HASH(uint8_t);
+	TRIVIAL_HASH(uint16_t);
+	TRIVIAL_HASH(uint32_t);
+	TRIVIAL_HASH(uint64_t);
+
+#undef TRIVIAL_HASH
+
 
 	template<typename Key, typename Value>
 	struct Hash_Node
@@ -25,7 +62,7 @@ namespace ntl
 		Hash_Node<Key, Value>* next = nullptr;
 	};
 
-	template<typename Key, typename Value, typename Function = Hash <Key, 1024>>
+	template<typename Key, typename Value, typename Function = Hash <Key>>
 	class Hash_Table
 	{
 	public:
@@ -43,7 +80,7 @@ namespace ntl
 		size_t _size = 0;
 	};
 
-	template<typename Key, typename Value, typename Function = Hash <Key, 1024>>
+	template<typename Key, typename Value, typename Function = Hash <Key>>
 	Hash_Table<Key, Value, Function>::~Hash_Table()
 	{
 		// destroy all buckets one by one
@@ -62,7 +99,7 @@ namespace ntl
 		}
 	}
 
-	template<typename Key, typename Value, typename Function = Hash <Key, 1024>>
+	template<typename Key, typename Value, typename Function = Hash <Key>>
 	void Hash_Table<Key, Value, Function>::insert(const Key& key, const Value& value)
 	{
 		size_t index = hasher(key);
@@ -89,7 +126,7 @@ namespace ntl
 			it->value = value;
 	}
 
-	template<typename Key, typename Value, typename Function = Hash <Key, 1024>>
+	template<typename Key, typename Value, typename Function = Hash <Key>>
 	bool Hash_Table<Key, Value, Function>::find(const Key& key, const Value& value)
 	{
 		size_t index = hasher(key);
@@ -106,7 +143,7 @@ namespace ntl
 
 	}
 
-	template<typename Key, typename Value, typename Function = Hash <Key, 1024>>
+	template<typename Key, typename Value, typename Function = Hash <Key>>
 	void Hash_Table<Key, Value, Function>::erase(const Key& key)
 	{
 		size_t index = hasher(key);
@@ -131,7 +168,7 @@ namespace ntl
 		--_size;
 	}
 
-	template<typename Key, typename Value, typename Function = Hash <Key, 1024>>
+	template<typename Key, typename Value, typename Function = Hash <Key>>
 	size_t Hash_Table<Key, Value, Function>::size()
 	{
 		return _size;
