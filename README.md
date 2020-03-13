@@ -22,5 +22,4 @@ This repo includes some sort of data structures and algorithms implementation us
 |Min binary Heap|https://github.com/IsmailSamir/NTL/blob/master/ntl/include/ntl/Min_Binary_Heap.h |
 |Priority Queue|https://github.com/IsmailSamir/NTL/blob/master/ntl/include/ntl/Priority_Queue.h |
 |Hash Tabel|https://github.com/IsmailSamir/NTL/blob/master/ntl/include/ntl/Hash_Table.h |
-|AVL Tree| https://github.com/IsmailSamir/NTL/blob/master/ntl/include/ntl/AVL_Tree.h |
 |Trie| https://github.com/IsmailSamir/NTL/blob/master/ntl/include/ntl/Trie.h |
